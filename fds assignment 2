@@ -1,0 +1,46 @@
+#python program to store marks
+
+print('********************** FDS ASSIGNMENT NO : 2 ***************************')
+n=int(input('How many students apperead in FDS exam(enter -1 for absent students):-'))
+sea=[]
+for i in range(0,n):
+a=int(input("Enter FDS marks for each student :-"))
+sea.append(a)
+avg=0
+for i in sea:
+if i==-1:
+pass
+else:
+avg=avg+i
+per=avg/n
+print("Q1)Average percentage of the class is :-",per)
+mx=sea[0]
+for i in sea:
+if i>mx:
+mx=i
+print("Q2-i)Highest score of the class is :-",mx)
+mn=500000
+for i in sea:
+if i==-1:
+pass
+else:
+if i<mn:
+mn=i
+print("Q2-ii)Lowest score of the class is :",mn)
+cnt=0
+for i in sea:
+if i==-1:
+cnt=cnt+1
+print("Q3)No of absent students are :-",cnt)
+freq=0
+temp=sea[0]
+for i in sea:
+z=sea.count(i)
+if i==-1:
+pass
+else:
+if z>freq:
+freq=z
+temp=i
+print("Q4)The marks with high frequency is :-",temp)
+print('******************************THANK YOU********************************')
