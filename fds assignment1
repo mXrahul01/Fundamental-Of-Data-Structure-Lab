@@ -1,0 +1,50 @@
+#cricket,badminton,football
+
+nc=int(input('enter how many students plays cricket :-'))
+cric=[]
+for i in range(nc):
+ l=str(input('enter the names of students who plays cricket :-'))
+ cric.append(l)
+nf=int(input('enter how many students plays football :-'))
+foot=[]
+for i in range(nf):
+ x=str(input('enter the names of students who plays football :-'))
+ foot.append(x)
+nb=int(input('enter how many students plays badminton :-'))
+bad=[]
+for i in range(nb):
+ y=str(input('enter the names of students who plays badminton :-'))
+ bad.append(y)
+def union(l1,l2):
+ unres=l2.copy()
+ for i in l1:
+ if i not in l2:
+ unres.append(i)
+ return unres
+def inter(l1,l2):
+ intres=[]
+ for i in l1:
+ if i in l2:
+ intres.append(i)
+ return intres
+def diff(l1,l2):
+ difres=[]
+ for i in l1:
+ if i not in l2:
+ difres.append(i)
+ return difres
+print("1)list of stdents who plays both cricket and badminton:-")
+l=inter(cric,bad)
+print(l)
+print("2)list of stdents who plays either cricket or badminton but not same :-")
+x=union(cric,bad)
+v=diff(x,l)
+print(v)
+print("3-i)list of students who neither play badminton nor cricket:-")
+p=diff(foot,cric)
+c=diff(p,bad)
+print(c)
+print("4-i)list of stdents who plays cricket and football :-")
+g=union(cric,foot)
+m=diff(g,bad)
+print(m)
