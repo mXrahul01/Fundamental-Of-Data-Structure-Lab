@@ -1,0 +1,119 @@
+#include<iostream>
+using namespace std;
+struct node
+{
+int van;
+int but;
+string name;
+struct node* next;
+};
+struct node* startA=NULL;
+struct node* startB=NULL;
+void insertchoiceA(){
+struct node * nn=new node;
+struct node*temp=startA;
+cout<<"\nEnter student name :";
+cin>>nn->name;
+cout<<"\nDo you likes vanilla :(1-YES/0-NO):";
+cin>>nn->van;
+cout<<"\nDo you likes butterscotch :(1-YES/0-NO):";
+cin>>nn->but;
+cout<<"\n\n_____________________________________\n";
+nn->next=startA;
+startA=nn;
+}
+void insertchoiceB(){
+struct node * nn=new node;
+struct node*temp=startB;
+cout<<"\nEnter student name :";
+cin>>nn->name;
+cout<<"\nDo you likes vanilla :(1-YES/0-NO):";
+cin>>nn->van;
+cout<<"\nDo you likes butterscotch :(1-YES/0-NO):";
+cin>>nn->but;
+cout<<"\n\n_____________________________________\n";
+nn->next=startB;
+startB=nn;
+}
+void bothAB(){
+struct node*temp=startA;
+cout<<endl<<"[";
+while(temp!=NULL){
+if(temp->but==1 && temp->van==1){
+cout<<"(";
+cout<<temp->name;
+cout<<")";
+}
+temp=temp->next;
+}
+struct node*temp1=startB;
+while(temp1!=NULL){
+if(temp1->but==1 && temp1->van==1){
+cout<<"(";
+cout<<temp1->name;
+cout<<")";
+}
+temp1=temp1->next;
+}
+cout<<"]"<<endl;
+}
+void eitherAB(){
+struct node*temp=startA;
+cout<<endl<<"[";
+while(temp!=NULL){
+if(temp->but==1 && temp->van==0 ||temp->but==0 && temp->van==1 ){
+cout<<"(";
+cout<<temp->name;
+cout<<")";
+}
+temp=temp->next;
+}
+struct node*temp1=startB;
+while(temp1!=NULL){
+if(temp1->but==1 && temp1->van==0 ||temp1->but==0 && temp1->van==1 ){
+cout<<"(";
+cout<<temp1->name;
+cout<<")";
+}
+temp1=temp1->next;
+}
+cout<<"]"<<endl;
+}
+int main(){
+int ch;
+cout<<"\n----------------------------Enter the names of students in set-A--------------------------------";
+do
+{
+insertchoiceA();
+cout<<"Do you want to continue insertion in set A(1-YES/2-NO) :";
+cin>>ch;
+}
+while(ch!=2);
+cout<<"\n----------------------------Enter the names of students in set-B----------------------------------";
+do
+{
+insertchoiceB();
+cout<<"Do you want to continue insertion in set B(1-YES/2-NO) :";
+cin>>ch;
+}
+while(ch!=2);
+int op;
+do{
+cout<<"\n1)Students who likes both vanilla and butterscotch\n2)Students who likes either vanilla or butterscotch\n3)Exit";
+cout<<"\nEnter your choice : ";
+cin>>op;
+switch(op)
+{
+case(1):
+cout<<"Students who likes both vanilla and butterscotch :";
+bothAB();
+break;
+case(2):
+cout<<"Students who likes either vanilla or butterscotch but not same:";
+eitherAB();
+break;
+}
+}
+while(op!=3);
+return 0;
+}
