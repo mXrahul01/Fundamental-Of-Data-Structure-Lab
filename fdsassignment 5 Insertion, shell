@@ -1,0 +1,39 @@
+n=int(input("Enter how many students are there :-"))
+sea=[]
+for i in range(0,n):
+ x=float(input("Enter the percentage for each student :-"))
+ sea.append(x)
+print("Unsorted list of percentage of all students is:-",sea)
+def insort(l1):
+ for i in range(1,n):# 78 32 44 11
+ temp=l1[i]
+ j=i-1
+ while (j>=0 and temp<l1[j]):
+ l1[j+1]=l1[j]
+ j=j-1
+ l1[j+1]=temp
+ return l1
+ 
+y=insort(sea)
+print("Q1-a)Sorted list of percentage of all students is(By insertion sort) :-",y)
+def shellsort(l1):
+ interval = n // 2
+ while interval > 0:
+ for i in range(interval, n):
+ temp = l1[i]
+ j = i
+ while j >= interval and l1[j - interval] > temp:
+ l1[j] = l1[j - interval]
+ j -= interval
+ l1[j] = temp
+ interval //= 2
+ return l1
+z=shellsort(sea)
+print("Q1-b)Sorted list of percentage of all students is(By Shell sort):-",z)
+def topfive(l1):
+ tp=[]
+ for i in range(n-5,n):
+ tp.append(l1[i])
+ return tp
+r=topfive(sea)
+print("Q1-b)This are the top five students :-",r)
