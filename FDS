@@ -1,1 +1,25 @@
-#Write a Python program that computes the net amount of a bank account based a transaction log from console input. #The transaction log format is shown as following: #D 100 W 200 (Withdrawal is not allowed if balance is going negative. Write functions for withdraw and deposit)  D means deposit while W means withdrawal.
+#sppu fds lab manual
+#Write a Python program that computes the net amount of a bank account based a transaction log from console input. #The transaction log format is shown as following: #D 100 W 200 (Withdrawal is not allowed if balance is going negative. Write functions for withdraw and deposit)  D means deposit while W means withdrawal
+
+
+balance=0
+def deposit():
+    global balance
+    d=int(input("enter the amount to be deposited: "))
+    balance=balance+d
+def withdrawal():
+    global balance
+    w=int(input("enter the amount to be withdrawn: "))
+    if balance>w:
+        balance=balance-w
+        print("withdrawal successful")
+    else:
+        print("insufficient balance to withdraw")
+n=int(input("enter number of transactions: "))
+for i in range(n):
+    opt=int(input("give your operation : 1;deposit,2;withdrawal: "))
+    if opt==1:
+        deposit()
+    else:
+        withdrawal()
+print("current balance is:",balance)
