@@ -1,0 +1,36 @@
+#selection, bubble
+
+n=int(input("Enter how many students are there :-"))
+sea=[]
+for i in range(0,n):
+ x=float(input("Enter the percentage for each student :-"))
+ sea.append(x)
+print("Unsorted list of percentage of all students is:-",sea)
+def selsort(l1):
+ for i in range(0,n):
+ for j in range(i+1,n):
+ if l1[i]>l1[j]:
+ temp=l1[i]
+ l1[i]=l1[j]
+ l1[j]=temp
+ return l1
+y=selsort(sea)
+print("Q1-a)Sorted list of percentage of all students is(By Selection sort) :-",y)
+def bubsort(l1):
+ for i in range(0,n):
+ for j in range(0,n-1):
+ if l1[j]>l1[j+1]:
+ temp=l1[j]
+ l1[j]=l1[j+1]
+ l1[j+1]=temp
+ return l1
+z=bubsort(sea)
+print("Q1-b)Sorted list of percentage of all students is(By Bubble sort):-",z)
+def topfive(l1):
+ tp=[]
+ for i in range(n-5,n):
+ tp.append(l1[i])
+ return tp
+r=topfive(sea)
+print("Q1-b)This are the top five students :-",r)
+print('******************************THANK YOU********************************')
