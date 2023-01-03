@@ -1,0 +1,60 @@
+
+int queue[size];
+int front=-1,rear=-1;
+using namespace std;
+void add_job(){
+if(front==-1 && rear==size-1)
+{
+cout<<"queue is full:"<<endl;
+}
+else
+{
+rear++;
+cout<<"enter process into the queue : "<<endl;
+cin>>queue[rear];
+}
+}
+void delete_job(){
+if(front==rear){
+cout<<"no processes !!";
+}
+else{
+cout<<endl<<"P"<<queue[front+1]<<" prosess is deleted !!"<<endl;
+front++;
+}
+if(front==rear){
+front=rear=-1;
+}
+}
+void display(){
+if(rear==-1){
+cout<<"Queue is empty";
+}
+else{
+cout<<"All processes present in the queue :"<<endl;
+for(int i=front+1;i<=rear;i++){
+cout<<queue[i]<<endl;
+}
+}
+}
+int main(){
+int ch;
+while(1){
+cout<<"\n1)Insert a process into Queue \n2)Delete the process from the queue\n3)Display all the processes present in the queue\n4)Exit\n";
+cout<<"Enter your choice :";
+cin>>ch;
+switch(ch)
+{
+case 1:
+add_job();
+break;
+case 2:
+delete_job();
+break;
+case 3:
+display();
+break;
+case 4:exit(0);
+}
+}
+}
